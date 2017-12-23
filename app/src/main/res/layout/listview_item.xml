@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.kitoha.myapplication.CheckableLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/Picture"
+        android:layout_weight="0.2"
+        android:layout_width="0px"
+        android:layout_height="match_parent"
+        android:src="@drawable/ic_launcher_background"/>
+    <LinearLayout
+        android:id="@+id/layout1"
+        android:layout_width="0px"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="5dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/mText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Text"
+            android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+        <TextView
+            android:id="@+id/Date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="0px"
+        android:layout_height="match_parent"
+        android:layout_weight="0.2">
+        <CheckBox
+            android:id="@+id/chkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:focusable="false"
+            android:checked="false"
+            android:clickable="false"/>
+    </LinearLayout>
+</com.example.kitoha.myapplication.CheckableLinearLayout>
