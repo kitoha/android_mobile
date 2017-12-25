@@ -15,6 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="3"
+        android:background="@color/colorAccent"
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
@@ -23,9 +24,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:text="PC 조립 도우미"
             android:gravity="center"
-            android:textColor="@android:color/white"
+            android:text="PC 조립 도우미"
+            android:textStyle="bold"
+            android:textColor="@android:color/holo_orange_light"
             android:textSize="36sp" />
 
         <TextView
@@ -33,8 +35,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/signed_out"
-            android:textColor="@android:color/white"
-            android:textSize="14sp" />
+            android:textStyle="bold"
+            android:textColor="@android:color/holo_orange_light"
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/detail"
@@ -47,15 +50,16 @@
             android:scrollbars="vertical"
             android:textColor="@android:color/white"
             android:textSize="14sp" />
+
         <Button
             android:id="@+id/start"
-            android:layout_marginTop="130dp"
-            android:text="시작"
-            android:background="@drawable/button"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:visibility="gone"/>
+            android:layout_marginTop="130dp"
+            android:background="@drawable/button"
+            android:text="시작"
+            android:visibility="gone" />
 
     </LinearLayout>
 
@@ -90,16 +94,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="sign_out"
-                />
-
-            <Button
-                android:id="@+id/disconnect_button"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="disconnect"
-                />
+                android:background="@drawable/button"
+                android:text="sign_out" />
         </LinearLayout>
 
     </RelativeLayout>

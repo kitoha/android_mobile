@@ -36,7 +36,6 @@ class Login:AppCompatActivity(), GoogleApiClient.OnConnectionFailedListener {
     var mProgressDialog:ProgressDialog ? = null
     private val sign_in_btn:SignInButton get() = findViewById(R.id.sign_in_button)
     private val sign_out_btn:Button get() =  findViewById(R.id.sign_out_button)
-    private val disconnect_btn:Button get() =  findViewById(R.id.disconnect_button)
     private val sign_out_disconnect:LinearLayout get() = findViewById(R.id.sign_out_and_disconnect)
     private val start_btn:Button get() = findViewById(R.id.start)
     lateinit var mAuth:FirebaseAuth
@@ -70,9 +69,6 @@ class Login:AppCompatActivity(), GoogleApiClient.OnConnectionFailedListener {
          }
          sign_out_btn?.setOnClickListener {
              signOut()
-         }
-         disconnect_btn?.setOnClickListener {
-             revokeAccess()
          }
          start_btn.setOnClickListener {
 
