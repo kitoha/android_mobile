@@ -13,7 +13,6 @@
         android:layout_height="0px"
         android:layout_weight="0.5"
         android:orientation="horizontal">
-
         <TextView
             android:gravity="center"
             android:layout_width="0px"
