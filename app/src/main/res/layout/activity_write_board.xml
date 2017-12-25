@@ -32,11 +32,31 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0px"
-        android:layout_weight="3">
+        android:layout_weight="3"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="200dp"
+            android:layout_height="0px"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_gravity="center">
+            <ImageView
+                android:id="@+id/board_image"
+                android:layout_width="200dp"
+                android:layout_height="150dp"
+                android:background="@color/colorPrimaryDark"/>
+            <Button
+                android:id="@+id/upload_btn"
+                android:text="사진올리기"
+                android:layout_width="200dp"
+                android:layout_height="50dp" />
+        </LinearLayout>
+
         <EditText
             android:id="@+id/textinfo"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0px"
+            android:layout_weight="1"
             android:hint=" 내용을 입력하세요."/>
     </LinearLayout>
 
