@@ -13,4 +13,11 @@
         android:layout_height="wrap_content"
         android:text="게시판"/>
 
+    <Button
+        android:layout_marginLeft="100dp"
+        android:id="@+id/go_chat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="채팅"/>
+
 </RelativeLayout>

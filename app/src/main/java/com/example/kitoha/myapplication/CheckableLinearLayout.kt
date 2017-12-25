@@ -20,7 +20,6 @@ class CheckableLinearLayout : LinearLayout, Checkable {
     override fun isChecked(): Boolean {
         val cb:CheckBox=findViewById(R.id.chkbox)
         return cb.isChecked
-
     }
 
     override fun toggle() {

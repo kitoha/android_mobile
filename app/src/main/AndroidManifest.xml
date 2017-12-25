@@ -9,10 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".MainActivity">
-
-        </activity>
-        <activity android:name=".Board" />
+        <activity android:name=".MainActivity" />
+        <activity
+            android:name=".Board"
+            android:windowSoftInputMode="adjustResize" />
         <activity android:name=".WriteBoard" />
         <activity android:name=".ReadBoard" />
         <activity android:name=".Login">
@@ -22,6 +22,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".DelBoard" />
+        <activity android:name=".MyInfo" />
+        <activity android:name=".Chat"></activity>
     </application>
 
 </manifest>

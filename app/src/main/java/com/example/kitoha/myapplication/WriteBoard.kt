@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.DatabaseError
@@ -19,8 +21,8 @@ import java.util.*
 class WriteBoard : AppCompatActivity() {
 
     val database:FirebaseDatabase = FirebaseDatabase.getInstance()
-    //val myRef:DatabaseReference = database.getReference("BoardInform")
     val myRef:DatabaseReference = database.getReference()
+    val user: FirebaseUser = FirebaseAuth.getInstance().getCurrentUser() as FirebaseUser
     lateinit var title:String
     lateinit var text:String
 
@@ -48,6 +50,7 @@ class WriteBoard : AppCompatActivity() {
             val now_data:String=year+"-"+month+"-"+day+" "+hour+":"+min+":"+sec
             info.date=now_data
             info.description=text
+            info.user_id=user.uid.toString()
 
             Log.d("디버깅 중",title)
             myRef.child("BoardInform").push().setValue(info)

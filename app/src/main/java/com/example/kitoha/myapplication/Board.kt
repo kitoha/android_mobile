@@ -13,6 +13,8 @@ import android.widget.BaseAdapter
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_board.*
 
@@ -26,7 +28,6 @@ class Board : AppCompatActivity() {
     val database:FirebaseDatabase= FirebaseDatabase.getInstance()
     val myRef:DatabaseReference=database.getReference()
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_board)
@@ -38,9 +39,7 @@ class Board : AppCompatActivity() {
 
         add_list = mutableListOf<ListData>()
 
-        settinglist()
-
-        list.addAll(add_list as List<ListData>)
+       // list.addAll(add_list as List<ListData>)
 
         adapter = CAdapter(this,list)
 
@@ -51,7 +50,6 @@ class Board : AppCompatActivity() {
             val intent:Intent=Intent(this,ReadBoard::class.java)
             intent.putExtra("read_title",list_info.mTitle)
             startActivity(intent)
-
         }
 
         editsearch.addTextChangedListener(object : TextWatcher {
@@ -73,34 +71,9 @@ class Board : AppCompatActivity() {
         }
 
         deletebtn.setOnClickListener {
-            //val checkedItem:SparseBooleanArray=listview.getCheckedItemPositions()
-            val checkedItem:SparseBooleanArray=listview.checkedItemPositions
-            var count:Int=adapter.getCount()
-           // Toast.makeText(this,"count "+count.toString(),Toast.LENGTH_SHORT).show()
-            count=count-1;
-            for(i in 0..count){
-                if(checkedItem.get(i)){
-                   // Toast.makeText(this,"선택됨 "+i.toString(),Toast.LENGTH_SHORT).show()
-                    val query:Query=myRef.child("BoardInform").orderByChild("date").equalTo(list.get(i).mDate)
-                    list.removeAt(i)
-                    query.addListenerForSingleValueEvent(object : ValueEventListener{
-                        override fun onCancelled(p0: DatabaseError?) {
+            val intent : Intent = Intent(this,DelBoard::class.java)
+            startActivity(intent)
 
-                        }
-
-                        override fun onDataChange(dataSnapshot: DataSnapshot?) {
-                            for(snapshot:DataSnapshot in dataSnapshot!!.getChildren()){
-                                snapshot.getRef().removeValue()
-                                now_delete=true
-                            }
-                        }
-
-                    })
-                   // list.removeAt(i)
-                }
-            }
-            listview.clearChoices()
-            adapter.notifyDataSetChanged()
         }
 
         // Read from the database
@@ -108,11 +81,6 @@ class Board : AppCompatActivity() {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
-                if(now_delete){
-                    now_delete=false
-                }
-                else {
-                    Log.d("zzzz","zzzz")
                     list.clear()
                     for (snapshot: DataSnapshot in dataSnapshot.getChildren()) {
                         var list_info: ListData = ListData()
@@ -120,12 +88,12 @@ class Board : AppCompatActivity() {
                         list_info.mTitle = get_data.title
                         list_info.mIcon = getResources().getDrawable(R.drawable.ic_launcher_background)
                         list_info.mDate = get_data.date
+                        list_info.mId=get_data.user_id
                         list.add(list_info)
                         add_list.add(list_info)
                     }
                     adapter.notifyDataSetChanged()
                 }
-            }
 
             override fun onCancelled(error: DatabaseError) {
                 // Failed to read value
@@ -152,14 +120,5 @@ class Board : AppCompatActivity() {
         }
         adapter.notifyDataSetChanged()
     }
-
-    fun settinglist() {
-      //  add_list.add(ListData(getResources().getDrawable(R.drawable.ic_launcher_background),"Text1","2017-12-01"))
-     //   add_list.add(ListData(getResources().getDrawable(R.drawable.ic_launcher_background),"kite2","2017-12-01"))
-     //   add_list.add(ListData(getResources().getDrawable(R.drawable.ic_launcher_background),"sse3","2017-12-01"))
-      //  add_list.add(ListData(getResources().getDrawable(R.drawable.ic_launcher_background),"krt4","2017-12-01"))
-     //   add_list.add(ListData(getResources().getDrawable(R.drawable.ic_launcher_background),"ou5","2017-12-01"))
-    }
-
 
 }

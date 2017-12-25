@@ -12,9 +12,15 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val btn1: Button = findViewById(R.id.button1)
+        val btn2: Button = findViewById(R.id.go_chat)
 
         btn1.setOnClickListener {
             val intent : Intent = Intent(this,Board::class.java)
+            startActivity(intent)
+        }
+
+        btn2.setOnClickListener {
+            val intent : Intent = Intent(this,Chat::class.java)
             startActivity(intent)
         }
     }

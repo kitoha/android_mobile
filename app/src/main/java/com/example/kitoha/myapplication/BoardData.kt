@@ -8,6 +8,7 @@ class BoardData(get_Title:String?=null,val get_Date:String?=null,get_description
     var title:String?=null
     var date:String?=null
     var description:String?=null
+    var user_id:String?=null
 
     init {
         this.title=get_Title

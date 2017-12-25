@@ -50,7 +50,10 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="0px"
-        android:layout_weight="0.3">
+        android:layout_weight="0.5"
+        android:focusable="true"
+        android:gravity="bottom"
+        android:focusableInTouchMode="true">
         <Button
             android:id="@+id/write"
             android:layout_width="0px"

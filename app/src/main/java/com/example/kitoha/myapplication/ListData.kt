@@ -9,6 +9,7 @@ class ListData(val get_Icon:Drawable?=null,val get_Title:String?=null,val get_Da
     var mIcon:Drawable?=null
     var mTitle:String?=null
     var mDate:String?=null
+    var mId:String?=null
 
     init {
         this.mIcon=get_Icon
