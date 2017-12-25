@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "1024229509749-34ji8h68iqsrj8tvf5qpsg636nvogr9n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.kitoha.myapplication",
+            "certificate_hash": "cb31fd3e66d37631016bf1ed6c7d385fa47b0ab3"
+          }
+        },
+        {
           "client_id": "1024229509749-1mgendrj7m0dsnsr3unansqs47t2oiee.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
